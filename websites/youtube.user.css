@@ -1,0 +1,37 @@
+/* ==UserStyle==
+@name           Youtube Tweaks
+@namespace      https://github.com/andyltang/Browser-Tweaks
+@version        1.0.0
+@description    A userstyle to tweak youtube.com
+@author         Andy Tang
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+    /* remove extra padding on nav bar */
+    #primary {
+      padding-top: 0 !important;
+    }
+
+    /* navbar frosted glass */
+    #background {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* hide unecessary left sidebar elements */
+    ytd-guide-section-renderer:nth-child(n+3):nth-child(-n+4), #guide-links-primary, #guide-links-secondary {
+      display: none;
+    }
+
+    /* hide reels */
+    ytd-rich-section-renderer, ytd-reel-shelf-renderer {
+      display: none;
+    }
+
+    /* hide comment box */
+    #simple-box {
+      display: none;
+    }
+}

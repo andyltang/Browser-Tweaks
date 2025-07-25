@@ -1,7 +1,10 @@
 {
   "id": "alt-tweaks",
-  "name": "Personal Tweaks",
+  "name": "Browser Tweaks",
   "description": "A collection of browser UI tweaks.",
+  "style": {
+    "chrome": "https://raw.githubusercontent.com/andyltang/Browser-Tweaks/refs/heads/main/browser/userChrome.css"
+  },
   "author": "Andy Tang",
   "version": "1.0.0",
   "homepage": "https://github.com/andyltang/Browser-Tweaks"

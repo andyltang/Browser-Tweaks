@@ -1,0 +1,90 @@
+:root {
+  --black-translucent: rgba(0, 0, 0, 0.33);
+  --white-translucent: rgba(255, 255, 255, 0.15);
+  --white-text: rgba(255, 255, 255, 0.75);
+  --rounded-border: 8px;
+}
+
+/* pip with rounded corners */
+@-moz-document url("chrome://global/content/pictureinpicture/player.xhtml") {
+  html {
+    border-radius: 0.5rem !important;
+  }
+}
+
+/* remove pip icon in url bar */
+#picture-in-picture-button {
+  display: none;
+}
+
+
+/* Sidebar mods */
+/* adjust spacing in the search bar */
+.textbox-search-sign {
+  margin: 0.75rem;
+}
+
+#sidebar-header {
+  color: var(--white-text) !important;
+  background-color: var(--black-translucent) !important;
+  
+  border: 1px solid var(--white-translucent);
+  border-bottom: revert;
+  border-radius: var(--rounded-border) var(--rounded-border) 0 0 !important;
+}
+
+#sidebar {
+  padding: 0.5rem;
+  background-color: var(--black-translucent) !important;
+  
+  border: 1px solid var(--white-translucent);
+  border-top: revert;
+  border-radius: 0 0 var(--rounded-border) var(--rounded-border) !important;
+}
+
+/* floating sidebar */
+#sidebar-box {
+  display: flex;
+  position: absolute;
+  z-index: 999;
+  height: calc(100% - 14px);
+  margin: 8px 0;
+
+  pointer-events: auto;
+  backdrop-filter: blur(16px);
+  opacity: 1;
+  transition:
+    left 0.2s ease,
+    right 0.2s ease,
+    opacity 0.2s ease !important;
+
+  &[hidden] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* docked on the right */
+  &[sidebar-positionend] {
+    right: 8px;
+
+    &[hidden] {
+      right: 0;
+    }
+  }
+
+  /* docked on the left */
+  &:not([sidebar-positionend]) {
+    left: 8px;
+
+    &[hidden] {
+      left: 0;
+    }
+  }
+}
+
+
+/* adjust treeviews font */
+#bookmarks-view, #historyTree {
+  color: var(--white-text) !important;
+  font-size: 14px;
+}
